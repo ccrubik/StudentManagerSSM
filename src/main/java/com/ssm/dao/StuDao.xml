@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.StuDao">
+    <resultMap type="student" id="student">
+        <id property="sid" column="sid"/>
+        <result property="sname" column="sname"/>
+        <result property="sage" column="sage"/>
+        <result property="sgender" column="sgender"/>
+        <result property="shobby" column="shobby"/>
+        <result property="sbirthday" column="sbirthday"/>
+    </resultMap>
+
+    <select id="listAllStus" resultMap="student">
+		SELECT sid,sname,sage,sgender,shobby,sbirthday FROM stus
+	</select>
+
+    <insert id="addStu" parameterType="student">
+		INSERT INTO stus VALUES(#{sid},#{sname},#{sage},#{sgender},#{shobby},#{sbirthday})
+	</insert>
+</mapper>
